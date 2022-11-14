@@ -1,0 +1,130 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Input Text Animation</title>
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet"</link>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="./crypto-js.js"></script>
+    <script src="fun.js"></script>
+    <script src="index.js"></script>
+	<link rel="stylesheet" href="./tt1.css"><!--css样式-->
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+<img class="pets" src="images/mao.gif" />
+<div class="Box">
+	<div class="inputBox">
+        <svg id="svg" t="1666417383382" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3729" width="32" height="32"><path d="M565.747623 792.837176l260.819261 112.921839 126.910435-845.424882L66.087673 581.973678l232.843092 109.933785 562.612725-511.653099-451.697589 563.616588-5.996574 239.832274L565.747623 792.837176z" p-id="3730" ></path></svg>
+	    
+        <input id="phone" type="number" required="required" oninput="if(value.length>11)value=value.slice(0,11)">
+		<span id="text_phone" class="text_phone">Enter mobile number</span>
+    </div>
+    <button id="b1" class="btn" ><span id="text" >START</span></button>
+</div>
+<!--模态框-->
+<div id="madal_box">
+  <div id="overlay">
+    <div class="popup">
+      <p class="popup_title">Tips</p>
+      <p class="popup_content">Please enter the correct mobile number</p>
+      <button id="b1" class="confirmBtn" onclick="hidePopup()">
+        <span id="text1">Got It</span>
+      </button>
+    </div>
+  </div>
+  <div id="set">
+    <div class="popup set_popup">
+      <p class="popup_title">Set Up</p>
+      <p class="popup_content">
+        <span class="set_text">Frequency:</span>
+        <input class="set" id="nots" type="number" required="required" oninput="if(value.length>3)value=value.slice(0,3)"value="0"/>
+      </p>
+      <button id="b1" class="confirmBtn" onclick="hidePopup()">
+        <span id="text1">Got It</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="tips">
+    <div class="expression">
+        <div class="exe">
+        
+        </div>
+        <div class="exe">
+        
+        </div>
+    </div>
+    <div class="tips_text">
+        <t class="t_text" ></t>
+    </div>
+</div>
+
+<!--
+<div class="content">
+        <div class="slide-box">
+            <div class="banner"></div>
+            <div class="pagination-box"></div>
+        </div>
+</div>
+   -->
+<script src="ddd.js"></script>
+<script src="fun.js"></script>
+<script type="text/javascript" >
+
+(function(){
+    $("#phone").focus(function () {
+    // 输入框获取焦点
+         //alert(1)
+         $("#text_phone").hide();
+    }).blur(function () {
+    // 输入框失去焦点
+    var phone = $("#phone").val().length;
+    if(phone < 1){
+        $("#text_phone").show();
+        }
+});
+    
+
+})();
+    var timer = null;
+    var index = 0;
+    var isClick = false;
+    var nots = $("#nots").val();
+    var count = 0;
+    var tt=0;
+    $("#b1").click(function() {
+        
+        var phone = $("#phone").val();
+        //alert(phone);
+        if (abc(phone) == false) {
+            return
+        };
+        
+        if (isClick == false) {
+            btnCss_A();
+            SMS_send();
+            isClick = true
+        } else {
+            btnCss_B();
+            SMS_end();
+            isClick = false
+        };
+        
+    });
+    $("#svg").click(function() {
+        
+        $("#set").css({
+            "display": "block",
+        });
+        
+
+    });
+
+</script>
+
+
+</body>
+</html>
