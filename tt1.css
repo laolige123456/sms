@@ -6,7 +6,8 @@
     --Input--B: rgb(49,48,49);
     }
 
-*{
+*
+{
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
@@ -17,7 +18,8 @@ body{
     _background-image: url(about:blank);
     _background-attachment: fixed;
 }
-body {
+body 
+{
     overflow: hidden;
 	display: flex;
 	justify-content: center;
@@ -62,7 +64,7 @@ right:0;
 bottom:0;
 left:0;
 margin:auto;
-transform:scale(1.28);
+transform:scale(1.08);
 }
 .inputBox 
 {
